@@ -26,6 +26,7 @@ import com.budjb.rabbitmq.publisher.RabbitMessagePublisherImpl
 import grails.core.GrailsClass
 import grails.plugins.Plugin
 import org.apache.log4j.Logger
+import org.springframework.beans.factory.support.AbstractBeanDefinition
 
 class RabbitmqNativeGrailsPlugin extends Plugin {
 
@@ -146,9 +147,9 @@ class RabbitmqNativeGrailsPlugin extends Plugin {
             }
 
             // Create consumer beans
-            grailsApplication.getArtefacts('MessageConsumer').each {GrailsClass clazz ->
-                "${clazz.fullName}"(clazz.clazz) {bean ->
-                    bean.autowire = true
+            grailsApplication.getArtefacts('MessageConsumer').each {GrailsClass consumer ->
+                "${consumer.fullName}"(consumer.clazz) {bean ->
+                    bean.autowire =  "byName"
                 }
             }
         }
