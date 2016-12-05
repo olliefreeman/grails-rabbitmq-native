@@ -147,7 +147,7 @@ class RabbitmqNativeGrailsPlugin extends Plugin {
 
             // Create consumer beans
             grailsApplication.getArtefacts('MessageConsumer').each {GrailsClass clazz ->
-                "${clazz.propertyName}"(clazz.clazz) {bean ->
+                "${clazz.fullName}"(clazz.clazz) {bean ->
                     bean.autowire = true
                 }
             }
