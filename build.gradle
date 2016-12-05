@@ -12,7 +12,7 @@ buildscript {
     }
 }
 
-version "3.2.5"
+version "3.2.6-SNAPSHOT"
 group "org.grails.plugins"
 
 apply plugin: 'eclipse'
@@ -136,3 +136,5 @@ artifacts {
     archives sourcesJar
     archives javadocJar
 }
+
+install.dependsOn 'assemble'

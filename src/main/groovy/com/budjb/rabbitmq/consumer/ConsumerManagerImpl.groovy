@@ -250,7 +250,7 @@ class ConsumerManagerImpl implements ConsumerManager, ApplicationContextAware {
      */
     @Override
     ConsumerContext createContext(GrailsClass artefact) {
-        return createContext(applicationContext.getBean(artefact.propertyName))
+        return createContext(applicationContext.getBean(artefact.fullName))
     }
 
     /**
