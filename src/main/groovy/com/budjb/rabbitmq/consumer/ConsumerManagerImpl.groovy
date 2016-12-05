@@ -274,7 +274,8 @@ class ConsumerManagerImpl implements ConsumerManager, ApplicationContextAware {
      * @return
      */
     protected Map loadConsumerApplicationConfiguration(Object consumer) {
-        def configuration = grailsApplication.config.rabbitmq.consumers."${consumer.getClass().simpleName}"
+        def configuration = grailsApplication.config.rabbitmq.consumers."${consumer.getClass().simpleName}"?:
+                            grailsApplication.config.rabbitmq.consumers."${consumer.getClass().name}"
 
         if (!configuration || !Map.class.isAssignableFrom(configuration.getClass())) {
             return null

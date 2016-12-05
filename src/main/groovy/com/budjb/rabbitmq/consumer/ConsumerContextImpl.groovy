@@ -175,7 +175,7 @@ class ConsumerContextImpl implements ConsumerContext {
      */
     @Override
     String getId() {
-        return consumer.getClass().getSimpleName()
+        return consumer.getClass().getName()
     }
 
     /**
